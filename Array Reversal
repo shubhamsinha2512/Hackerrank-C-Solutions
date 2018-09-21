@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int num, *arr, i,j, temp;
+    scanf("%d", &num);
+    arr = (int*) malloc(num * sizeof(int));
+    for(i = 0; i < num; i++) {
+        scanf("%d", arr + i);
+    }
+    
+    
+     if(num%2!=0){ //Checks if the number of elements in array is odd.         
+        for (i=0,j=num-1;i!=j;i++,j--){
+                temp = arr[j];    //Swaps the elements
+                arr[j] = arr[i];  //
+                arr[i] = temp;    //
+        }
+    }else if(num%2==0){ //Checks if the number of elements in array is even.
+        for(i=0,j=num-1;i<(num/2);i++,j--){
+                temp = arr[j];    //Swaps the elements
+                arr[j] = arr[i];  //
+                arr[i] = temp;    //
+        }
+    }
+    
+
+    for(i = 0; i < num; i++)
+        printf("%d ", *(arr + i));
+    return 0;
+}
